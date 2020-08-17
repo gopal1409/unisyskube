@@ -5,6 +5,6 @@ metadata:
 spec:
     containers:
         - name: tomcat
-          image: tomcat
+          image: httpd
           ports:
           - containerPort: 7500

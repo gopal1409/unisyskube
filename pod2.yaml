@@ -1,0 +1,15 @@
+# kubectl create 
+apiVersion: v1 #it invoke the kubernetes api v1
+kind: Pod #invoke your pod api
+metadata: 
+    name: tomcat #it will create an encapsulator with a name called as tomcat
+spec: #
+    containers:
+        - name: tomcat
+          image: tomcat
+          ports:
+          - containerPort: 7500
+        - name: Database
+          image: mongodb
+          ports:
+          - containerPort: 7501
