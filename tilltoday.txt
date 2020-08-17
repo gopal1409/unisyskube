@@ -1,0 +1,486 @@
+    1  yum install -y yum-utils
+    2  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+    3  yum install docker-ce docker-ce-cli containerd.io
+    4  systemctl start docker
+    5  systemctl enable docker
+    6  systemctl status docker
+    7  history
+    8  docker --version
+    9  docker
+   10  exit
+   11  docker container run --publish 80:80 --detach nginx
+   12  ssh gopal@52.152.135.22
+   13  ls
+   14  clear
+   15  docker images
+   16  docker ps
+   17  docker rm 1572
+   18  docker rm 1572 -force
+   19  docker rm 1572 --force
+   20  docker images
+   21  docke rmi 083
+   22  docker rmi 083
+   23  clear
+   24  docker container run --publish 80:80 --detach nginx
+   25  docker container run --publish 81:80 --detach nginx
+   26  docker images
+   27  docker container ls
+   28  docker ps
+   29  docker container ls -a
+   30  docker container run --publish 82:80 --detach httpd
+   31  docker ps
+   32  docker container run --publish 80 --detach httpd
+   33  docker ps
+   34  docker container run --detach httpd
+   35  docker ps
+   36  curl localhost:81
+   37  curl localhost:82
+   38  docker ps
+   39  ls
+   40  clear
+   41  docker ps
+   42  docker container stop 8702
+   43  docker ps -a
+   44  docker container start 8702
+   45  docker container rm 8702
+   46  docker container rm 8702 -f
+   47  docker container rm b7a2 01a 51a 468c c06
+   48  docker container rm b7a2 01a 51a 468c c06 -f
+   49  docker volume
+   50  docker volume ls
+   51  docker ps
+   52  docker rm db
+   53  docker rm db -f
+   54  docker volume ls
+   55  docker rmmongo -f
+   56  docker rm mongo -f
+   57  docker volume ls
+   58  docker ps
+   59  clear
+   60  docker run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v 
+   61  docker volume ls
+   62  docker run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+   63  docker ps
+   64  docker volume ls
+   65  docker volume inspect mysql-db
+   66  history
+   67  docker ps
+   68  docker exec -it mysql bash
+   69  docker rm mysql -f
+   70  docker volume ls
+   71  history
+   72  docker volume
+   73  docker run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+   74  docker exec -it mysql bash
+   75  history
+   76  | information_schema |
+   77  curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   78  chmod +x /usr/local/bin/docker-compose
+   79  docker-compose
+   80  ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+   81  docker-compose
+   82  history
+   83  docker-compose --version
+   84  mkdir project
+   85  touch docker-compose.yaml
+   86  vi docker-compose.yaml 
+   87  docker-compose up -d
+   88  vi docker-compose.yaml 
+   89  ls
+   90  mv docker-compose.yaml /root/project/
+   91  cd project/
+   92  vi docker-compose.yaml 
+   93  docker-compose up -d
+   94  vi docker-compose.yaml 
+   95  docker-compose up -d
+   96  vi docker-compose.yaml 
+   97  docker-compose up -d
+   98  vi docker-compose.yaml 
+   99  docker-compose up -d
+  100  docker ps
+  101  docker network ls
+  102  docker volume ls
+  103  docker ps
+  104  docker swarm init
+  105  docker run --name mongo -d mongo
+  106  docker ps
+  107  docker tomp mongo
+  108  top
+  109  docker top mongo
+  110  ps aux
+  111  docker ps
+  112  docker exec -it mongo bash
+  113  clear
+  114  docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=true mysql
+  115  docker ps
+  116  docker container logs db
+  117  docker ps
+  118  docker exec -it db bash
+  119  docker ps
+  120  docker container inspect db 
+  121  cd /var/lib/containers
+  122  cd /var/lib/docker/containers/
+  123  ls
+  124  cd 3578654b6ffeb86406612fd8c54328573342096ef93db6c88b799983ef9a1efd/
+  125  ls
+  126  cd ..
+  127  ;ls
+  128  ls
+  129  cd ..
+  130  ls
+  131  cd volumes/
+  132  ls
+  133  cd f21b203503d1c9563f05b5415360c6af4901536282495ebd67b97bc55e15c297/
+  134  ls
+  135  cd _data/
+  136  ls
+  137  docker container stats
+  138  docker ps
+  139  docker container inspect --format '{{NetworkSettings.IPAddress}}' db
+  140  docker container inspect --format '{{.NetworkSettings.IPAddress}}' db
+  141  docker container inspect db
+  142  docker container inspect --format '{{.NetworkSettings.IPAddress}}' db
+  143  ip a
+  144  docker network ls
+  145  docker run -d --name newapache --network host nginx
+  146  docker ps
+  147  docker network ls
+  148  docker network inspect bridge
+  149  docker network 
+  150  docker network create
+  151  docker network create my_app_net
+  152  docker network ls
+  153  docker container run -d --name new_nginx --network my_app_net nginx:alpine
+  154  docker ps
+  155  docker container run -d --name my_nginx --network my_app_net nginx:alpine
+  156  docker container exec -it my_nginx ping new_nginx
+  157  docker container exec -it new_nginx ping my_nginx
+  158  history
+  159  cd \
+  160  cd \root
+  161  cd /root
+  162  clear
+  163  history
+  164  docker network ls
+  165  docker container inspect my_app_net
+  166  docker network  inspect my_app_net
+  167  history
+  168  ls
+  169  vi docker-compose.yaml 
+  170  hostnamectl set-hostname --static dockermaster
+  171  vi /e/cloud/cloud.cfg
+  172  cd /etc/cloud/cloud.cfg
+  173  vi /etc/cloud/cloud.cfg
+  174  reboot
+  175  yum install -y yum-utils
+  176  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+  177  yum install docker-ce docker-ce-cli containerd.io
+  178  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+  179  docker swarm init
+  180  docker swarm leave
+  181  docker swarm leave --force
+  182  docker swarm init
+  183  clear
+  184  docker node ls
+  185  ls
+  186  docker service create --replicas 2 --name helloworld alpine ping docker.com
+  187  docker service ls
+  188  docker ps
+  189  docker service ps helloworld
+  190  history
+  191  docker service --replicas --name webservice nginx
+  192  docker service create --replicas --name webservice nginx
+  193  docker service create --replicas 2 --name webservice nginx
+  194  docker service ps webservice
+  195  clear
+  196  history
+  197  docker service inspect --pretty webservice
+  198  docker service inspect webservice
+  199  docker service inspect --pretty webservice
+  200  docker service scale webservice=5
+  201  docker service ps webservice
+  202  docker service create --replicas 3 --name redis --update-delay 10s redis:3.0.6
+  203  docker service ps redis
+  204  docker service inspect --pretty redis
+  205  docker service update --image redis:3.0.7 redis
+  206  docker service inspect --pretty redis
+  207  docker service ps redis
+  208  history
+  209  docker node ls
+  210  docker node update --availability drain dockerworker
+  211  docker node inspect --pretty dockerworker
+  212  docker service ps redis
+  213  docker node update --availability active dockerworker
+  214  history
+  215  docker node ls
+  216  docker service ps redis
+  217  docker service create --name my-web --publish published=8080,target=80 --replicas2 nginx
+  218  docker service create --name my-web --publish published=8080,target=80 --replicas 2 nginx
+  219  docker ps
+  220  docker service inspect --format="{{json.Endpoint].Spec.Ports}}" 
+  221  docker service inspect --format="{{json.Endpoint.Spec.Ports}}" 
+  222  docker service inspect --format="{{json.Endpoint].Spec.Ports}}"  my-web
+  223  docker service inspect --format="{{json.Endpoint.Spec.Ports}}"  my-web
+  224  docker service inspect --format="{{json.Endpoint.Spec.Ports}}" my-web
+  225  docker service inspect --format="{{json.Endpoint.Spec.Ports}}"my-web
+  226  docker service ls
+  227  docker service inspect --format="{{json.Endpoints.Spec.Ports}}"my-web
+  228  docker service inspect my-web
+  229  docker service inspect --format="{{json.Endpoint.Spec.PublishedPorts}}"my-web
+  230  docker service inspect --format="{{json.Endpoint.Spec.Ports.PublishedPort}}"my-web
+  231  history
+  232  docker node ls
+  233  docker images
+  234  mkdir project2
+  235  cd project
+  236  cd ..
+  237  cd project2
+  238  vi HelloWorld.java
+  239  javac HelloWorld.java 
+  240  yum install java-1.8.0-openjdk-devel
+  241  javac HelloWorld.java 
+  242  java HelloWorld
+  243  cat HelloWorld.java 
+  244  history
+  245  ls
+  246  vi manifest.txt
+  247  jar cfm HelloWorld.jar manifest.txt HelloWorld.class 
+  248  java -jar HelloWorld.jar 
+  249  cat manifest.txt 
+  250  ls
+  251  touch Dockerfile
+  252  vi Dockerfile 
+  253  cat Dockerfile 
+  254  vi Dockerfile 
+  255  cat Dockerfile 
+  256  docker build -t gopalimage .
+  257  docker images
+  258  docker run gopalimage
+  259  cat Dockerfile 
+  260  java -jar HelloWorld.jar 
+  261  cat Dockerfile 
+  262  docker images
+  263  docker image
+  264  docker images
+  265  docker image history gopalimage
+  266  docker images
+  267  cat Dockerfile 
+  268  vi Dockerfile 
+  269  docker build -t gopalimage .
+  270  docker images
+  271  cat Dockerfile 
+  272  docker rmi mongo
+  273  docker images
+  274  docker login
+  275  docker images
+  276  docker tag
+  277  docker tag 9ab0f43926da gopal1409/gopalimage
+  278  docker images
+  279  docker push gopal1409/gopalimage
+  280  ls
+  281  ls -l
+  282  mkdir mypy
+  283  cd mypy/
+  284  vi myscrip.py
+  285  vi Dockerfile
+  286  docker build -t mypython .
+  287  docker images
+  288  ls
+  289  vi Dockerfile 
+  290  ls
+  291  mv myscrip.py myscript.py 
+  292  docker build -t mypython .
+  293  docker ps
+  294  docker images
+  295  docker run mypython
+  296  ls
+  297  git init
+  298  yum install git
+  299  git init
+  300  git config --global user.name "gopal"
+  301  git config --global user.email "gopal1409@gmail.com"
+  302  git add .
+  303  git commit -m "docker python program"
+  304  git remote add origin https://github.com/gopal1409/Dockerpython.git
+  305  git push -u origin master
+  306  ls
+  307  vi myscript.py 
+  308  git add .
+  309  git commit -m "docker python program"
+  310  git push -u origin master
+  311  docker pull 560079/nodeimage
+  312  yum install git
+  313  history
+  314  git init
+  315  git add .
+  316  git commit -m "mynodejsapplication"
+  317  ls
+  318  vi myscript.py 
+  319  git status
+  320  git add .
+  321  git commit -m "my updated app"
+  322  git push -u origin master
+  323  history
+  324  cat Dockerfile 
+  325  vi Dockerfile 
+  326  git add .
+  327  git push -u origin master
+  328  git commit -m "new version"
+  329  git push -u origin master
+  330  cd /etc/docker/
+  331  ls
+  332  cd /root
+  333  ls
+  334  cd mypy/
+  335  ls
+  336  vi Dockerfile 
+  337  ls
+  338  docker run -d -p 50000:5000 --restart=always --name registry registry:2
+  339  docker ps
+  340  docker service ls
+  341  docker service rm helloworld my-wb redis webservice
+  342  docker ps
+  343  docker service rm helloworld my-web redis webservice
+  344  docker ps
+  345  docker images
+  346  docker tag 9ab0f43926da localhost:5000/gopalimage
+  347  docker image
+  348  docker images
+  349  history
+  350  docker tag 9ab0f43926da localhost:50000/gopalimage
+  351  docker push localhost:50000/gopalimage
+  352  history
+  353  curl -X GET http://localhost:50000/v2/_catalog
+  354  mkdir nodeapp
+  355  cd nodeapp/
+  356  vi package.json
+  357  curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+  358  yum install -y nodejs
+  359  history
+  360  npm install
+  361  ls
+  362  history
+  363  ls
+  364  hostnamectl set-hostname --static k8smaster
+  365  bash
+  366  docker ps
+  367  docker rm 642f0 cce1d 1d87d --force
+  368  docker images
+  369  docker image prune
+  370  docker ps
+  371  docker container prune
+  372  docker network prune
+  373  docker volume prune
+  374  history
+  375  cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+  376  net.bridge.bridge-nf-call-ip6tables = 1
+  377  net.bridge.bridge-nf-call-iptables = 1
+  378  EOF
+  379  sudo sysctl --system
+  380  history
+  381  cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+  382  [kubernetes]
+  383  name=Kubernetes
+  384  baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+  385  enabled=1
+  386  gpgcheck=1
+  387  repo_gpgcheck=1
+  388  gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+  389  EOF
+  390  sudo setenforce 0
+  391  sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+  392  sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  393  sudo systemctl enable --now kubelet
+  394  systemctl daemon-reload
+  395  systemctl restart kubelet
+  396  ls
+  397  sudo setenforce 0
+  398  sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+  399  sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  400  sudo systemctl enable --now kubelet
+  401  systemctl daemon-reload
+  402  cls
+  403  clear
+  404  kubeadm init --pod-network-cidr=1.0.0.0/16
+  405  kubectl get nodes
+  406  kubectl get pod --all-namespaces
+  407  docker ps
+  408  kubectl get nodes
+  409  kubectl get
+  410  kubectl get pod
+  411  kubectl describe 
+  412  kubectl delete 
+  413  kubectl create 
+  414  kubectl get --all-namespaces
+  415  kubectl get pod
+  416  kubectl get nodes
+  417  kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+  418  kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+  419* 
+  420  kubectl get pod --all-namespaces
+  421  vi calico
+  422  mv calico.yaml
+  423  mv calico calico.yaml
+  424  kubectl apply -f calico.yaml 
+  425  kubectl delete -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+  426  kubectl apply -f calico.yaml 
+  427  kubectl get pod --all-namespaces
+  428  kubectl get nodes
+  429  history
+  430  ls
+  431  cat calico.yaml 
+  432  kubectl get nodes
+  433  ls
+  434  kubectl get nodes
+  435  history
+  436  clear
+  437  kubectl get ns
+  438  kubectl get namespaces
+  439  kubectl get ns kube-system
+  440  kubectl get pod kube-system
+  441  kubectl get pod -n kube-system
+  442  kubectl create ns development
+  443  kubectl get ns
+  444  kubectl describe ns development
+  445  history
+  446  vi pod.yaml
+  447  kubectl create -f pod.yaml 
+  448  vi pod.yaml
+  449  kubectl create -f pod.yaml 
+  450  kubectl create
+  451  kubectl create -f pod.yaml 
+  452  kubectl get pod
+  453  kubectl describe pod tomcat
+  454  kubectl get pod
+  455  history
+  456  kubectl get pod
+  457  vi pod.yaml 
+  458  kubectl create -f pod.yaml 
+  459  kubectl apply -f pod.yaml 
+  460  kubectl delete -f pod.yaml 
+  461  kubectl apply -f pod.yaml 
+  462  kubectl get pod
+  463* kubectl describe pod t
+  464  history
+  465  kubectl delete -f pod.yaml 
+  466  vi pod.yaml 
+  467  git init
+  468  git add .
+  469  git commit -m "pod.yaml"
+  470  ls
+  471  rm -rf .git
+  472  ls
+  473  mkdir kubeexercise
+  474  pwd
+  475  mv pod.yaml /root/kubeexercise/
+  476  cd kubeexercise/
+  477  git init
+  478  git add .
+  479  git commit -m "pod.yaml"
+  480  git remote add origin https://github.com/gopal1409/unisyskube.git
+  481  git config --global user.name "gopal"
+  482  git config --global user.email "gopal"
+  483  git push -u origin master
+  484  ls
+  485  cat pod.yaml 
+  486  history > tilltoday.txt
