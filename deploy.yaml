@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: nginx-deployment 
+    name: php-deployment 
     labels:
-        app: nginx
+        myapp: php
 spec:
     replicas: 3
     selector:
         matchLabels:
-            app: nginx
+            myapp: php
     template:
         metadata:
             labels:
-                app: nginx
+                myapp: php
         spec:
             containers:
-                - name: nginx
-                  image: nginx:1.14.2
+                - name: php
+                  image: piuma/phpsysinfo
                   ports:
                     - containerPort: 80
