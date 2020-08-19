@@ -1,0 +1,1000 @@
+   69  docker service ps webservice
+   70  docker service create --replicas 3 --name redis --update-delay 10s redis:3.0.6
+   71  docker service ps redis
+   72  docker service inspect --pretty redis
+   73  docker service update --image redis:3.0.7 redis
+   74  docker service inspect --pretty redis
+   75  docker service ps redis
+   76  history
+   77  docker node ls
+   78  docker node update --availability drain dockerworker
+   79  docker node inspect --pretty dockerworker
+   80  docker service ps redis
+   81  docker node update --availability active dockerworker
+   82  history
+   83  docker node ls
+   84  docker service ps redis
+   85  docker service create --name my-web --publish published=8080,target=80 --replicas2 nginx
+   86  docker service create --name my-web --publish published=8080,target=80 --replicas 2 nginx
+   87  docker ps
+   88  docker service inspect --format="{{json.Endpoint].Spec.Ports}}" 
+   89  docker service inspect --format="{{json.Endpoint.Spec.Ports}}" 
+   90  docker service inspect --format="{{json.Endpoint].Spec.Ports}}"  my-web
+   91  docker service inspect --format="{{json.Endpoint.Spec.Ports}}"  my-web
+   92  docker service inspect --format="{{json.Endpoint.Spec.Ports}}" my-web
+   93  docker service inspect --format="{{json.Endpoint.Spec.Ports}}"my-web
+   94  docker service ls
+   95  docker service inspect --format="{{json.Endpoints.Spec.Ports}}"my-web
+   96  docker service inspect my-web
+   97  docker service inspect --format="{{json.Endpoint.Spec.PublishedPorts}}"my-web
+   98  docker service inspect --format="{{json.Endpoint.Spec.Ports.PublishedPort}}"my-web
+   99  history
+  100  docker node ls
+  101  docker images
+  102  mkdir project2
+  103  cd project
+  104  cd ..
+  105  cd project2
+  106  vi HelloWorld.java
+  107  javac HelloWorld.java 
+  108  yum install java-1.8.0-openjdk-devel
+  109  javac HelloWorld.java 
+  110  java HelloWorld
+  111  cat HelloWorld.java 
+  112  history
+  113  ls
+  114  vi manifest.txt
+  115  jar cfm HelloWorld.jar manifest.txt HelloWorld.class 
+  116  java -jar HelloWorld.jar 
+  117  cat manifest.txt 
+  118  ls
+  119  touch Dockerfile
+  120  vi Dockerfile 
+  121  cat Dockerfile 
+  122  vi Dockerfile 
+  123  cat Dockerfile 
+  124  docker build -t gopalimage .
+  125  docker images
+  126  docker run gopalimage
+  127  cat Dockerfile 
+  128  java -jar HelloWorld.jar 
+  129  cat Dockerfile 
+  130  docker images
+  131  docker image
+  132  docker images
+  133  docker image history gopalimage
+  134  docker images
+  135  cat Dockerfile 
+  136  vi Dockerfile 
+  137  docker build -t gopalimage .
+  138  docker images
+  139  cat Dockerfile 
+  140  docker rmi mongo
+  141  docker images
+  142  docker login
+  143  docker images
+  144  docker tag
+  145  docker tag 9ab0f43926da gopal1409/gopalimage
+  146  docker images
+  147  docker push gopal1409/gopalimage
+  148  ls
+  149  ls -l
+  150  mkdir mypy
+  151  cd mypy/
+  152  vi myscrip.py
+  153  vi Dockerfile
+  154  docker build -t mypython .
+  155  docker images
+  156  ls
+  157  vi Dockerfile 
+  158  ls
+  159  mv myscrip.py myscript.py 
+  160  docker build -t mypython .
+  161  docker ps
+  162  docker images
+  163  docker run mypython
+  164  ls
+  165  git init
+  166  yum install git
+  167  git init
+  168  git config --global user.name "gopal"
+  169  git config --global user.email "gopal1409@gmail.com"
+  170  git add .
+  171  git commit -m "docker python program"
+  172  git remote add origin https://github.com/gopal1409/Dockerpython.git
+  173  git push -u origin master
+  174  ls
+  175  vi myscript.py 
+  176  git add .
+  177  git commit -m "docker python program"
+  178  git push -u origin master
+  179  docker pull 560079/nodeimage
+  180  yum install git
+  181  history
+  182  git init
+  183  git add .
+  184  git commit -m "mynodejsapplication"
+  185  ls
+  186  vi myscript.py 
+  187  git status
+  188  git add .
+  189  git commit -m "my updated app"
+  190  git push -u origin master
+  191  history
+  192  cat Dockerfile 
+  193  vi Dockerfile 
+  194  git add .
+  195  git push -u origin master
+  196  git commit -m "new version"
+  197  git push -u origin master
+  198  cd /etc/docker/
+  199  ls
+  200  cd /root
+  201  ls
+  202  cd mypy/
+  203  ls
+  204  vi Dockerfile 
+  205  ls
+  206  docker run -d -p 50000:5000 --restart=always --name registry registry:2
+  207  docker ps
+  208  docker service ls
+  209  docker service rm helloworld my-wb redis webservice
+  210  docker ps
+  211  docker service rm helloworld my-web redis webservice
+  212  docker ps
+  213  docker images
+  214  docker tag 9ab0f43926da localhost:5000/gopalimage
+  215  docker image
+  216  docker images
+  217  history
+  218  docker tag 9ab0f43926da localhost:50000/gopalimage
+  219  docker push localhost:50000/gopalimage
+  220  history
+  221  curl -X GET http://localhost:50000/v2/_catalog
+  222  mkdir nodeapp
+  223  cd nodeapp/
+  224  vi package.json
+  225  curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+  226  yum install -y nodejs
+  227  history
+  228  npm install
+  229  ls
+  230  history
+  231  ls
+  232  hostnamectl set-hostname --static k8smaster
+  233  bash
+  234  docker ps
+  235  docker rm 642f0 cce1d 1d87d --force
+  236  docker images
+  237  docker image prune
+  238  docker ps
+  239  docker container prune
+  240  docker network prune
+  241  docker volume prune
+  242  history
+  243  cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+  244  net.bridge.bridge-nf-call-ip6tables = 1
+  245  net.bridge.bridge-nf-call-iptables = 1
+  246  EOF
+  247  sudo sysctl --system
+  248  history
+  249  cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+  250  [kubernetes]
+  251  name=Kubernetes
+  252  baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+  253  enabled=1
+  254  gpgcheck=1
+  255  repo_gpgcheck=1
+  256  gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+  257  EOF
+  258  sudo setenforce 0
+  259  sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+  260  sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  261  sudo systemctl enable --now kubelet
+  262  systemctl daemon-reload
+  263  systemctl restart kubelet
+  264  ls
+  265  sudo setenforce 0
+  266  sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+  267  sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+  268  sudo systemctl enable --now kubelet
+  269  systemctl daemon-reload
+  270  cls
+  271  clear
+  272  kubeadm init --pod-network-cidr=1.0.0.0/16
+  273   kubeadm init --pod-network-cidr=1.0.0.0/16
+  274   mkdir -p $HOME/.kube
+  275    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  276    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  277  kubeadm join 172.31.17.133:6443 --token psfucj.mpnnhn4cmmlcbnm9     --discovery-token-ca-cert-hash sha256:52eb705d215e49a405a0ba1001be736c2c5a1a3ab07c06ba1d95872173aef180
+  278  history
+  279  kubectl get nodes
+  280  vi /etc/hosts
+  281  cat /etc/hosts
+  282  kubectl get node
+  283  kubectl get nodes
+  284  kubectl get pod --all-namespaces
+  285  docker ps
+  286  kubectl get nodes
+  287  kubectl get
+  288  kubectl get pod
+  289  kubectl describe 
+  290  kubectl delete 
+  291  kubectl create 
+  292  kubectl get --all-namespaces
+  293  kubectl get pod
+  294  kubectl get nodes
+  295  kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+  296  kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+  297  kubectl get pod --all-namespaces
+  298  vi calico
+  299  mv calico.yaml
+  300  mv calico calico.yaml
+  301  kubectl apply -f calico.yaml 
+  302  kubectl delete -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+  303  kubectl apply -f calico.yaml 
+  304  kubectl get pod --all-namespaces
+  305  kubectl get nodes
+  306  history
+  307  ls
+  308  cat calico.yaml 
+  309  kubectl get nodes
+  310  ls
+  311  kubectl get nodes
+  312  history
+  313  clear
+  314  kubectl get ns
+  315  kubectl get namespaces
+  316  kubectl get ns kube-system
+  317  kubectl get pod kube-system
+  318  kubectl get pod -n kube-system
+  319  kubectl create ns development
+  320  kubectl get ns
+  321  kubectl describe ns development
+  322  history
+  323  vi pod.yaml
+  324  kubectl create -f pod.yaml 
+  325  vi pod.yaml
+  326  kubectl create -f pod.yaml 
+  327  kubectl create
+  328  kubectl create -f pod.yaml 
+  329  kubectl get pod
+  330  kubectl describe pod tomcat
+  331  kubectl get pod
+  332  history
+  333  kubectl get pod
+  334  vi pod.yaml 
+  335  kubectl create -f pod.yaml 
+  336  kubectl apply -f pod.yaml 
+  337  kubectl delete -f pod.yaml 
+  338  kubectl apply -f pod.yaml 
+  339  kubectl get pod
+  340  kubectl describe pod t
+  341  history
+  342  kubectl delete -f pod.yaml 
+  343  vi pod.yaml 
+  344  git init
+  345  git add .
+  346  git commit -m "pod.yaml"
+  347  ls
+  348  rm -rf .git
+  349  ls
+  350  mkdir kubeexercise
+  351  pwd
+  352  mv pod.yaml /root/kubeexercise/
+  353  cd kubeexercise/
+  354  git init
+  355  git add .
+  356  git commit -m "pod.yaml"
+  357  git remote add origin https://github.com/gopal1409/unisyskube.git
+  358  git config --global user.name "gopal"
+  359  git config --global user.email "gopal"
+  360  git push -u origin master
+  361  ls
+  362  cat pod.yaml 
+  363  history > tilltoday.txt
+  364  git add .
+  365  git commit -m "command history"
+  366  git push -u orign master
+  367  git push -u origin master
+  368  kubectl get pod
+  369  vi pod.yaml 
+  370  kubectl apply -f pod.yaml 
+  371  kubectl get pod
+  372  kubectl describe pod
+  373  ls
+  374  vi pod.yaml 
+  375  vi pod2.yaml
+  376  git add .
+  377  git commit =m "multicontaienr app"
+  378  git commit -m "multicontaienr app"
+  379  git push -u origin master
+  380  ls
+  381  cat pod2.yaml 
+  382  kubectl get pod
+  383  kubectl describe pod tomcat
+  384  kubeadm token create --print-join-command
+  385  vi /etc/hosts
+  386  kubectl get nodes
+  387  watch kubectl get nodes
+  388  [A
+  389  watch kubectl get nodes
+  390  kubectl get nodes
+  391  kubectl describe node k8sworker1
+  392  kubectl get nodes
+  393  kubectl describe node k8sworker1
+  394  kubectl get nodes
+  395  kubectl get pod --all-namespaces
+  396  kubectl describe pod coredns-66bff467f8-nshms
+  397  kubectl logs -f coredns-66bff467f8-nshms
+  398  kubectl logscoredns-66bff467f8-nshms
+  399  kubectl logs coredns-66bff467f8-nshms
+  400  kubectl get pod --all-namespaces
+  401  kubectl get pod
+  402  kubectl get nodes
+  403  kubectl get node
+  404  kubectl get nodes
+  405  kubectl get pod
+  406  kubectl describe pod tomcat
+  407  kubectl get pod
+  408  kubectl get pod --all-namespace
+  409  kubectl get pod --all-namespaces
+  410  kubectl get nodes
+  411  kubectl delete -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
+  412  kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+  413  kubectl delete -f https://docs.projectcalico.org/manifests/custom-resources.yaml
+  414  cd ..
+  415  ls
+  416  kubectl delete calico.yaml 
+  417  curl https://docs.projectcalico.org/manifests/calico.yaml -O
+  418  ls
+  419  rm calico.yaml 
+  420  curl https://docs.projectcalico.org/manifests/calico.yaml -O
+  421  ls
+  422  vi calico.yaml 
+  423  kubectl apply -f calico.yaml 
+  424  kubectl get nodes
+  425  kubectl get pod --all-namespaces
+  426  kubectl get pod
+  427  kubectl get nodes
+  428  kubectl get pod --all-namespaces
+  429  kubectl get nodes
+  430  kubectl get node k8sworker1
+  431  kubectl describe node k8sworker1
+  432  kubectl get nodes
+  433  kubectl get pod --all-namespaces
+  434  reboot
+  435  kubectl get nodes
+  436  kubectl get pod
+  437  ls
+  438  cd kubeexercise/
+  439  ls
+  440  vi pod2.yaml 
+  441  kubectl apply -f pod2.yaml 
+  442  vi pod2.yaml 
+  443  kubectl apply -f pod2.yaml 
+  444  kubectl get pod
+  445  kubectl get pod tomcatdb
+  446  kubectl describe pod tomcatdb
+  447  kubectl get nodes
+  448  kubectl get pod
+  449  vi pod2.yam
+  450  cd kubeexercise/
+  451  ls
+  452  cat pod.yaml 
+  453  cat pod2.yaml 
+  454  vi pod2.yaml 
+  455  kubectl apply -f pod2.yaml 
+  456  vi pod2.yaml 
+  457  kubectl apply -f pod2.yaml 
+  458  kubectl get pod
+  459  kubectl describe pod tomcatdb
+  460  kubectl get pod
+  461  kubectl describe pod 
+  462  kubectl get pod
+  463  kubectl describe tomcatdb
+  464  kubectl describe pod tomcatdb
+  465  history
+  466  cat pod2.yaml 
+  467  kubectl get pod
+  468  kubectl describe pod tomcatdb
+  469  cat pod2.yaml 
+  470  git clone git clone https://github.com/openliberty/guide-kubernetes-intro.git
+  471  yum install git -y
+  472  git clone git clone https://github.com/openliberty/guide-kubernetes-intro.git
+  473  git clone https://github.com/openliberty/guide-kubernetes-intro.git
+  474  ls
+  475  cd guide-kubernetes-intro/
+  476  ls
+  477  cd start
+  478  yum install -y java-1.8.0-openjdk-devel
+  479  cd /usr/local/src/
+  480  wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  481  yum install wget 
+  482  wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  483  tar -xf apache-maven-3.6.3-bin.tar.gz 
+  484  mv apache-maven-3.6.3 apache-maven
+  485  cd /etc/profile.d/
+  486  vi maven.sh
+  487  chmod +x maven.sh
+  488  source /etc/profile.d/maven.sh
+  489  mvn --version
+  490  cd\
+  491  cd \
+  492  cd /root
+  493  ls
+  494  cd guide-kubernetes-intro/
+  495  cd start/
+  496  mvn clean package
+  497  ls
+  498  docker pull openliberty/open-liberty:kernel-java8-openj9-ubi
+  499  docker build -t system:1.0-SNAPSHOT system/.
+  500  docker build -t inventory:1.0-SNAPSHOT inventory/.
+  501  docker images
+  502  ls
+  503  cd inventory/
+  504  ls
+  505  cat Dockerfile 
+  506  cd ..
+  507  vi kube.yaml
+  508  kubectl apply -f kube.yaml 
+  509  kubectl get pods
+  510  kubectl describe pod inventory-deployment-77c4d4477c-2sfhb
+  511  kubectl get nodes
+  512  history
+  513  kubeadm token create --print-join-command
+  514  vi /etc/hosts
+  515  kubectl get nodes
+  516  kubectl get pod
+  517  vi /etc/hosts
+  518  kubectl get nodes
+  519  kubectl describe node k8sworker1
+  520  vi /etc/hosts
+  521  cat /etc/hosts
+  522  kubectl get svc
+  523  curl http://18.224.29.85:32000/system/properties
+  524  curl http://18.224.29.85:31000/system/properties
+  525  kubectl get pod
+  526  kubectl get nodes
+  527  kubectl describe pod inventory-deployment-77c4d4477c-2sfhb
+  528  kubectl get pod
+  529  kubectl get nodes
+  530  docker ps
+  531  kubectl get nodes
+  532  kubectl get pod
+  533  kubectl delete -f kubernetes.yaml
+  534  cd ..
+  535  kubectl delete -f kubernetes.yaml
+  536  ls
+  537  cd start/
+  538  ls
+  539  kubectl delete -f kube.yaml 
+  540  kubectl get pod
+  541  kubectl apply -f kube.yaml 
+  542  cd ,,
+  543  cd ..
+  544  cd finish
+  545  ls
+  546  vi kubernetes.yaml 
+  547  kubectl get pod
+  548  docker images
+  549  kubectl get pod
+  550  kubectl get nodes
+  551  kubectl describe pod inventory-deployment-77c4d4477c-w8bhp
+  552  ls
+  553  kubectl apply -f kubernetes.yaml 
+  554  kubectl delete -f kubernetes.yaml 
+  555  kubectl apply -f kubernetes.yaml 
+  556  kubectl get pod
+  557  kubectl get pod 
+  558  kubectl describe pod system-deployment-7f57d64d88-5zcpj
+  559  docker images
+  560  docker image prune
+  561  docker images
+  562  docker ps
+  563  clear
+  564  kubectl get pod
+  565  vi kubernetes.yaml 
+  566  kubectl get pod
+  567  kubectl describe pod inventory-deployment-77c4d4477c-b4fx9
+  568  kubectl get deploy
+  569  kubectl describe deployment inventory-deployment
+  570  kubectl get deployment
+  571  kubectl get pod 
+  572  kubectl get pod inventory-deployment-77c4d4477c-b4fx9
+  573  kubectl describe pod inventory-deployment-77c4d4477c-b4fx9
+  574  clear
+  575  docker images
+  576  docker login
+  577  docekr tag images 8bd0aeaef493 gopal1409/inventory
+  578  docker tag images 8bd0aeaef493 gopal1409/inventory
+  579  docekr tag 8bd0aeaef493 gopal1409/inventory
+  580  docker tag 8bd0aeaef493 gopal1409/inventory
+  581  docker push gopal1409/inventory
+  582  docker images
+  583  docker tag bbf0534c6ec6 gopal1409/system
+  584  docker push gopal1409/system
+  585  ls
+  586  kubectl get pod
+  587  kubectl delete -f kubernetes.yaml 
+  588  vi kubernetes.yaml 
+  589  kubectl apply -f kubernetes.yaml 
+  590  kubectl get pod
+  591  watch kubectl get pod
+  592  curl http://172.31.17.133:31000/system/properties
+  593  ubectl scale deployment/system-deployment --replicas=3
+  594  kubectl scale deployment/system-deployment --replicas=3
+  595  kubectl get pod
+  596  mvn clean package
+  597  kubectl delete -f kubernetes.yaml
+  598  kubectl apply -f kubernetes.yaml
+  599  kubectl get pod
+  600  kubectl delete -f kubernetes.yaml
+  601  kubectl get nodes
+  602  kubectl create ns quota-mem-cpu-example
+  603  kubectl describe ns quota-mem-cpu-example
+  604  ls
+  605  cd kubeexercise/
+  606  vi quota.yaml
+  607  kubectl create -f quota.yaml --namespace=quota-mem-cpu-example
+  608  vi quota.yaml 
+  609  kubectl create -f quota.yaml --namespace=quota-mem-cpu-example
+  610  kubectl describe ns quota-mem-cpu-example
+  611  git add .
+  612  git push -u origin master
+  613  git commit -m "quota mem example"
+  614  git push -u origin master
+  615  history
+  616  kubectl get resourcequota mem-cpu-demo --namespace=quota-mem-cpu-example --output=yaml
+  617  history
+  618  vi quotapod1.yaml
+  619  kubectl apply -f quotapod1.yaml --namespace=quota-mem-cpu-example
+  620  vi quotapod1.yaml
+  621  kubectl apply -f quotapod1.yaml --namespace=quota-mem-cpu-example
+  622  git commit -am "quota pod 1"
+  623  git add .
+  624  git commit -am "quota pod 1"
+  625  git push -u origin master
+  626  kubectl get resourcequota mem-cpu-demo --namespace=quota-mem-cpu-example --output=yaml
+  627  ls
+  628  vi quotapod1.yaml 
+  629  kubectl apply -f quotapod1.yaml --namespace=quota-mem-cpu-example
+  630  vi quotapod1.yaml 
+  631  kubectl apply -f quotapod1.yaml --namespace=quota-mem-cpu-example
+  632  cat quotapod1.yaml 
+  633  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+  634  kubectl get pod ns kubernetes-dashboard
+  635  kubectl get pod --all-namespaces
+  636  vi dashuser.yaml
+  637  kubectl apply -f dashuser.yaml 
+  638  vi role.yaml
+  639  kubectl apply -f role.yaml 
+  640  kubectl get pod --all-namespaces
+  641  kubectl get svc --namespace=kubernetes-dashboard
+  642  kubectl proxy
+  643  kubectl edit kubernetes-dashboard
+  644  kubectl get pod --all-namespaces
+  645  kubectl edit pod kubernetes-dashboard-7b544877d5-khrr5
+  646  kubectl -n kube-system edit service kubernetes-dashboard
+  647  clear
+  648  kubectl get pod --all-namespaces
+  649  kubectl get svc
+  650  kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   21h
+  651  kubectl edit 
+  652  kubectl edit svc kubernetes
+  653  kubectl get svc
+  654  clear
+  655  history
+  656  kubectl edit svc kubernetes
+  657  kubectl get svc
+  658  kubectl proxy
+  659  kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+  660  ls
+  661  kubectl apply -f role.yaml 
+  662  kubectl apply -f dashuser.yaml 
+  663  reboot
+  664  kubectl get pod
+  665  kubectl get pod --all-namespaces
+  666  docker ps
+  667  kubectl get nodes
+  668  kubectl get pods
+  669  kubectl get nodes
+  670  kubectl get pod --all-namespaces
+  671  kubectl get svc
+  672  kubectl get services -n kube-system  
+  673  kubectl get services -n kube-dashboard
+  674  kubectl get services --all-namespaces
+  675  kubectl edit svc kubernetes-dashboard
+  676  kubectl edit svc -n kubernetes-dashboard kubernetes-dashboard
+  677  kubectl get services --all-namespaces
+  678  kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+  679  kubectl get nodes
+  680  kubectl drain k8sworker1
+  681  kubectl uncordon k8sworker1
+  682  kubectl get pod
+  683  kubectl get nodes
+  684  kubectl drain k8sworker1
+  685  kubectl get pod
+  686  kubectl delete pod tomcat
+  687  kubectl delete pod tomcat --force
+  688  kubectl delete pod tomcatdb --force
+  689  kubectl drain k8sworker1
+  690  kubectl get nodes
+  691  kubectl uncordon k8sworker1
+  692  kubectl get nodes
+  693  history
+  694  kubectl get pod
+  695  kubectl get nodes
+  696  kubectl get services -n kube-system
+  697  kubectl get svc --all-namespaces
+  698  kubectl edit -n kubernetes-dashboard kubernetes-dashboard
+  699  kubectl edit -ns kubernetes-dashboard kubernetes-dashboard
+  700  kubectl edit --namespaces kubernetes-dashboard kubernetes-dashboard
+  701  kubectl edit svc -n  kubernetes-dashboard kubernetes-dashboard
+  702  history
+  703  kubectl get pod --all-namespaces
+  704  ls
+  705  cd kubeexercise/
+  706  vi deploy.yaml
+  707  kubectl apply -f deploy.yaml 
+  708  vi deploy.yaml
+  709  kubectl apply -f deploy.yaml 
+  710  vi deploy.yaml
+  711  kubectl apply -f deploy.yaml 
+  712  git add .
+  713  git commit -m "deployment"
+  714  git push -u origin master
+  715  kubectl get deploy
+  716  kubectl rollout status deployment.apps/nginx-deployment
+  717  kubectl get rs
+  718  kubectl get pods --show-labels
+  719  kubectl describe deployment
+  720  kubectl get pods --show-labels
+  721  kubectl describe pod nginx-deployment-6b474476c4-7q4lg
+  722  history
+  723  kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1 --record
+  724  kubectl get rs
+  725  kubectl get pods --show-labels
+  726  kubectl edit deployment.v1.apps/nginx-deployment
+  727  kubectl describe deployment
+  728  kubectl set image deployment/nginx-deployment nginx=nginx:1.162 --record
+  729  kubectl get rs
+  730  kubectl rollout status deployment.v1.apps/nginx-deployment
+  731  kubectl describe deployment
+  732  kubectl rollout history deployment.v1.apps/nginx-deployment
+  733  kubectl rollout history deployment.v1.apps/nginx-deployment --revision=2
+  734  kubectl rollout history deployment.v1.apps/nginx-deployment --revision=3
+  735  kubectl rollout history deployment.v1.apps/nginx-deployment --revision=2
+  736  kubectl rollout history deployment.v1.apps/nginx-deployment
+  737  kubectl scale deployment.v1.apps/nginx-deployment --replicas=5
+  738  kubectl get rs
+  739  kubectl describe deployment
+  740  kubectl rollout history deployment.v1.apps/nginx-deployment --revision=2
+  741  kubectl get rs
+  742  kubectl autoscale deployment.v1.apps/nginx-deployment --min=10 --max=15 --cpu-percent=80
+  743  kubectl get deploy
+  744  history
+  745  ls
+  746  cd kubeexercise/
+  747  kubectl get deployment
+  748  kubectl describe deployment
+  749  kubectl get pod --all-namespaces
+  750  vi deploy.yaml 
+  751  kubectl apply -f deploy.yaml 
+  752  kubectl get pod --all-namespaces
+  753  kubectl get deployment
+  754  kubectl get svc
+  755  kubectl get service --all-namespaces
+  756  kubectl expose deployment nginx-deployment --type=NodePort --name=nginx-node
+  757  kubectl get svc
+  758  kubectl describe svc nginx-node
+  759  kubectl expose deployment nginx-deployment --type=LoadBalancer --name=nginx-node
+  760  kubectl expose deployment nginx-deployment --type=LoadBalancer --name=nginx-node-loadbalancer
+  761  kubectl get svc
+  762  vi fluent.yaml
+  763  kubectl apply -f fluent.yaml 
+  764  kubectl get pod --all-namespaces
+  765  kubectl delete deployment nginx-deployment
+  766  kubectl get pod --all-namespaces
+  767  kubectl get svc
+  768  clear
+  769  kubectl get nodes
+  770  ls
+  771  cd kubeexercise/
+  772  ls
+  773  vi deploy.yaml 
+  774  vi pod2.yaml 
+  775  cat deploy.yaml 
+  776  vi deploy.yaml 
+  777  clear
+  778  vi rab.yaml
+  779  kubectl apply -f rab.yaml 
+  780  vi rabcon.yaml
+  781  kubectl apply -f rabcon.yaml 
+  782  kubectl run -i --tty --image ubuntu:18.04
+  783  kubectl run -i --tty temp --image ubuntu:18.04
+  784  $ kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/jobs/job.yaml
+  785  kubectl apply -f https://raw.githubusercontent.com/openshift-evangelists/kbe/main/specs/jobs/job.yaml
+  786  kubectl get job
+  787  kubectl describe job/countdown
+  788  kubectl log countdown-d62t4
+  789  kubectl logs countdown-d62t4
+  790  kubectl delete job countdown
+  791  ls
+  792  vi deploy.yaml 
+  793  vi probe.yaml
+  794  kubectl apply -f probe.yaml 
+  795  kubectl describe pod node 500
+  796  kubectl describe pod node500
+  797  ls
+  798  vi probe.yaml
+  799  kubectl apply -f probe.yaml 
+  800  kubectl describe pod node500
+  801  kubectl delete -f probe.yaml 
+  802  kubectl apply -f probe.yaml 
+  803  kubectl describe pod node500
+  804  ls
+  805  cd kubeexercise/
+  806  ls
+  807  vi deploy.yaml 
+  808  kubectl apply -f deploy.yaml 
+  809  kubectl get pod
+  810  kubectl get deployment
+  811  kubectl expose deployment php-deployment --type=NodePort --name=php-service
+  812  kubectl get svc
+  813  git add .
+  814  git commit -m "phpsysinfo"
+  815  git push -u origin master
+  816  cat deploy.yaml 
+  817  history
+  818  kubectl get svc
+  819  mkdir fluentd
+  820  cd fluentd/
+  821  vi s1.yaml
+  822  kubectl apply -f s1.yaml 
+  823  vi s1.yaml
+  824  kubectl apply -f s1.yaml 
+  825  vi s1.yaml
+  826  kubectl apply -f s1.yaml 
+  827  vi role.yaml
+  828  kubectl apply -f role.yaml 
+  829  vi role.yaml
+  830  kubectl apply -f role.yaml 
+  831  vi role.yaml
+  832  kubectl apply -f role.yaml 
+  833  vi crb.yaml
+  834  kubectl apply -f crb.yaml 
+  835  vi crb.yaml
+  836  kubectl apply -f crb.yaml 
+  837  vi crb.yaml
+  838  kubectl apply -f crb.yaml 
+  839  vi deamonset.yaml
+  840  kubectl apply -f deamonset.yaml 
+  841  kubectl get --all-namespace
+  842  kubectl get pod --all-namespaces
+  843  kubectl get deploy
+  844  kubectl get pod fluentd-9n6js
+  845  kubectl get log fluentd-9n6js
+  846  kubectl get logs fluentd-9n6js
+  847  kubectl get pod logs fluentd-9n6js
+  848  kubectl get deploy
+  849  kubectl get pod --all-namespaces
+  850  kubectl logs
+  851  kubectl logs -f fluentd-9n6js
+  852  kubectl logs -f fluentd-2gsks
+  853  kubectl logs -p fluentd-2gsks
+  854  kubectl get pod --all-namespaces
+  855  cd ..
+  856  git add .
+  857  git commit -m "deamon set"
+  858  git push -u orign master
+  859  git push -u origin master
+  860  ls
+  861  cd guide-kubernetes-intro/
+  862  ls
+  863  cd start/
+  864  ls
+  865  cd inventory/
+  866  ls
+  867  cat Dockerfile 
+  868  cd /
+  869  kubectl get nodes
+  870  kubectl describe node k8sworker1
+  871  kubectl get nodes
+  872  ls
+  873  cd guide-kubernetes-intro/
+  874  ls
+  875  cd start/
+  876  ls
+  877  mvn clean package
+  878  ls
+  879  docker pull openliberty/open-liberty:kernal-java8-openj9-ubi
+  880  docker images
+  881  docker pull openliberty/open-liberty:kernel-java8-openj9-ubi
+  882  ls
+  883  cd system/
+  884  ls
+  885  cat Dockerfile 
+  886  cd ..
+  887  docker build -t gopal1409/system system/.
+  888  docker build -t gopal1409/inventory inventory/.
+  889  docker images
+  890  docker login
+  891  docker push gopal1409/inventory:latest
+  892  docker push gopal1409/system:latest
+  893  ls
+  894  vi kube.yaml 
+  895  kubectl apply -f kube.yaml 
+  896  kubectl get deploy
+  897  kuectl get svc
+  898  kubectl get svc
+  899  git init
+  900  git add .
+  901  git remote add origin https://github.com/gopal1409/unisyskube.git
+  902  git commit -m "docker kubernetes micro service"
+  903  git push -u origin master
+  904  git push -u origin master --force
+  905  history
+  906  cd\
+  907  cd \
+  908  cd /
+  909  git clone https://github.com/gopal1409/microservices-demo.git
+  910  ls
+  911  cd microservices-demo/
+  912  ls
+  913  helm
+  914  /usr/local/bin/helm 
+  915  logout
+  916  exit
+  917  yum install httpd
+  918  wget https://get.helm.sh/helm-v3.3.0-linux-amd64.tar.gz
+  919  tar -zxvf helm-v3.3.0-linux-amd64.tar.gz 
+  920  ls
+  921  mv linux-amd64/helm /usr/local/bin/helm
+  922  helm --version
+  923  /usr/local/bin/helm 
+  924  mv linux-amd64/helm /usr/local/bin/
+  925  tar -zxvf helm-v3.3.0-linux-amd64.tar.gz 
+  926  mv linux-amd64/helm /usr/local/bin/
+  927  helm
+  928  bash
+  929  exit
+  930  ls
+  931  cd kubeexercise/
+  932  mkdir volume
+  933  cd volume/
+  934  vi presistentvolume.yaml
+  935  kubectl apply -f presistentvolume.yaml 
+  936  vi presistentvolume.yaml 
+  937  kubectl apply -f presistentvolume.yaml 
+  938  kubectl get pv
+  939  vi pvc.yaml
+  940  kubectl apply -f pvc.yaml 
+  941  kubectl pv task-pv-volume
+  942  kubectl get pv task-pv-volume
+  943  kubectl get pvc task-pv-claim
+  944  vi volumepod.yaml
+  945  kubectl apply -f volumepod.yaml 
+  946  vi volumepod.yaml
+  947  kubectl apply -f volumepod.yaml 
+  948  cd ..
+  949  git add .
+  950  git commit -m "storage with pod"
+  951  git push -u orign master
+  952  git login
+  953  git push -u origin master
+  954  git push -u origin master --force
+  955  kubectl get pod
+  956  kubectl delete pod node500
+  957  history
+  958  kubectl get pod
+  959  kubectl exec -it task-pv-pod -- /bin/bash
+  960  kubectl expose pod task-pv-pod --type=NodePort --name=my-pod
+  961  vi volumepod.yaml
+  962  cd volume/
+  963  vi volumepod.yaml
+  964  kubectl expose pod task-pv-pod --type=NodePort --name=my-pod
+  965  vi volumepod.yaml
+  966  kubectl expose pod task-pv-pod --type=NodePort --name=my-pod
+  967  kubectl apply -f volumepod.yaml 
+  968  vi volumepod.yaml
+  969  kubectl apply -f volumepod.yaml 
+  970  kubectl expose pod task-pv-pod --type=NodePort --name=my-pod
+  971  cat volumepod.yaml 
+  972  kubectl get svc
+  973  history
+  974  cd ..
+  975  cd volume/
+  976  ls
+  977  cat volumepod.yaml 
+  978  git add .
+  979  git commit -m "volume with labels"
+  980  git push -u origin master
+  981  history
+  982  ls
+  983  ebsvolume.yaml
+  984  vi ebsvolume.yaml
+  985  kubectl apply -f ebsvolume.yaml 
+  986  vi ebsvolume.yaml
+  987  kubectl apply -f ebsvolume.yaml 
+  988  vi ebsvolume.yaml
+  989  kubectl apply -f ebsvolume.yaml 
+  990  cd ..
+  991  git add .
+  992  git push -u orign master
+  993  git commit -m "aws ebs volume"
+  994  git push -u orign master
+  995  git push -u origin master
+  996  kubectl get pv
+  997  ls
+  998  cd kubeexercise/
+  999  yum install tree
+ 1000  clear
+ 1001  ls
+ 1002  mkdir charts
+ 1003  cd charts/
+ 1004  mkdir my-nginx
+ 1005  cd my-nginx/
+ 1006  touch Chart.yaml
+ 1007  tree
+ 1008  vi Chart.yaml 
+ 1009  mkdir templates
+ 1010  kubectl create deploy my-nginx --image nginx --dry-run -o yaml 
+ 1011  pwd
+ 1012  kubectl create deploy my-nginx --image nginx --dry-run -o yaml > /root/kubeexercise/charts/my-nginx/templates/deployment.yaml
+ 1013  tree
+ 1014  helm install --name my-nginx .
+ 1015  helm install my-nginx .
+ 1016  helm list
+ 1017  kubectl expose deploy  my-nginx --port 80 --dry-run -o yaml > /root/kubeexercise/charts/my-nginx/templates/service.yaml
+ 1018  tree
+ 1019  vi Chart.yaml 
+ 1020  helm upgrade my-nginx .
+ 1021  helm list
+ 1022  helm rollback my-nginx 1
+ 1023  helm rollback my-nginx 2
+ 1024  helm list
+ 1025  tree
+ 1026  helm rollback my-nginx 3
+ 1027  helm rollback my-nginx 4
+ 1028  helm list
+ 1029  touch values.yaml
+ 1030  tree
+ 1031  vi values.yaml 
+ 1032  vi templates/deployment.yaml 
+ 1033  cat values.yaml 
+ 1034  cat templates/deployment.yaml 
+ 1035  vi templates/deployment.yaml 
+ 1036  cat values.yaml 
+ 1037  cat templates/deployment.yaml 
+ 1038  vi values.yaml 
+ 1039  ls
+ 1040  vi Chart.yaml 
+ 1041  helm upgrade my-nginx .
+ 1042  cat values.yaml 
+ 1043  vi templates/deployment.yaml 
+ 1044  vi values.yaml 
+ 1045  helm upgrade my-nginx .
+ 1046  vi values.yaml 
+ 1047  helm upgrade my-nginx .
+ 1048  helm upgrade my-nginx . set replicaCount=1
+ 1049  helm upgrade my-nginx . --set replicaCount=1
+ 1050  helm inspect values .
+ 1051  vi values.yaml 
+ 1052  vi templates/service.yaml 
+ 1053  helm upgrade my-nginx . 
+ 1054  helm upgrade my-nginx . --set service.type=LoadBalancer
+ 1055  helm delete mynginx .
+ 1056  helm delete my-nginx .
+ 1057  cd ..
+ 1058  helm chart myapp
+ 1059  helm chart myapp .
+ 1060  helm create myapp
+ 1061  ls
+ 1062  tree myapp/
+ 1063  git add .
+ 1064  git reset
+ 1065  git checkou .
+ 1066  git reset
+ 1067  git status
+ 1068  history > helmcommand.txt
