@@ -10,6 +10,9 @@ spec:
       - name: task-pv-storage
         persistentVolumeClaim:
           claimName: task-pv-claim
+    selector:
+      matchLabels:
+        app: vol 
     containers:
         - name: task-pv-container 
           image: nginx
